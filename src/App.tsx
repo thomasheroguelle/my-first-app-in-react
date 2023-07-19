@@ -1,26 +1,60 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import Header from 'component/headerComponent/Header';
+import BackButton from 'component/backButton/BackButton';
+import ProductDetails from 'component/productDetails/ProductDetails';
+import ProductCard from 'component/productCard/ProductCard';
+import ContainerFlexBetween from 'component/containerFlexBetween/ContainerFlexBetween';
+import { LINKS, PRODUCTS } from 'mock.ts/product';
+import ContainerFlexArround from 'component/containerFlexArround/ContainerFlexArround';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <React.Fragment>
+      <header>
+        <Header />
       </header>
-    </div>
-  );
-}
+      <main>
+        <BackButton />
+        <ProductDetails />
+        <ul>
+          {PRODUCTS.map((product) => <li key={product.id}><ProductCard item={product} /></li>)}
+        </ul>
+        <ContainerFlexBetween title="Mes numéros favoris">
+          <a href="">1</a>
+          <a href="">2</a>
+          <a href="">3</a>
+        </ContainerFlexBetween>
+        <ContainerFlexArround title='Mes partenaires'>
+          <li>
+            <a href="">Meta</a>
+            <a href="">Apple</a>
+            <a href="">Microsoft</a>
+            <a href="">Amazon</a>
+            <a href=""></a>
+            <a href=""></a>
+          </li>
 
-export default App;
+        </ContainerFlexArround>
+
+
+
+
+      </main>
+
+    </React.Fragment>
+  )
+}
+     export default App;  
+
+
+/* /* 
+/* /* // Fragment n'est pas nécessaire dans ce cas , exemple
+//  return (
+//   <>
+//        <Header />
+//        <BackButton />
+//        <ProductDetails />
+  export default App; */ 
+            //  */} */}
